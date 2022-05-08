@@ -1,15 +1,21 @@
 import React from 'react'
+import styled from 'styled-components';
 
 function SideBar() {
   return (
-    <div className=''>
-        SideBar
-    </div>
+    <Container>
+        <h1> Side Bar </h1>
+        <Header>
+            
+        </Header>
+    </Container>
   );
 }
 
 export default SideBar;
 
-const container = styled.div`
+const Container = styled.div`
 
 `;
+
+const Header = styled.div``;
