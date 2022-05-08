@@ -1,12 +1,12 @@
+import { Avatar } from '@material-ui/core';
 import React from 'react'
 import styled from 'styled-components';
 
 function SideBar() {
   return (
     <Container>
-        <h1> Side Bar </h1>
         <Header>
-            
+
         </Header>
     </Container>
   );
@@ -14,8 +14,10 @@ function SideBar() {
 
 export default SideBar;
 
-const Container = styled.div`
+// styles for the  above components.
 
-`;
+const Container = styled.div``;
 
 const Header = styled.div``;
+
+const userAvatar = styled(Avatar)``;
