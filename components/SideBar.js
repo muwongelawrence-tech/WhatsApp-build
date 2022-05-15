@@ -19,7 +19,10 @@ function SideBar() {
 
         </Header>
 
-        <Search> <SearchIcon/>  </Search>
+        <Search> 
+          <SearchIcon/> 
+          <SearchInput/> 
+        </Search>
 
     </Container>
   );
@@ -54,4 +57,11 @@ const UserAvatar = styled(Avatar)`
 `;
 
 const IconContainer = styled.div``;
-const Search = styled.div``;
+
+const Search = styled.div`
+
+`;
+
+const SearchInput = styled.input`
+
+`;
