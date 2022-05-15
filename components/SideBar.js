@@ -26,6 +26,9 @@ function SideBar() {
 
         <SideBarButton> Start a new chat </SideBarButton>
 
+        {/* List of chats */}
+        
+
     </Container>
   );
 }
