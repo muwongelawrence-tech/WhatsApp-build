@@ -27,7 +27,7 @@ function SideBar() {
         <SideBarButton> Start a new chat </SideBarButton>
 
         {/* List of chats */}
-        
+
 
     </Container>
   );
@@ -82,5 +82,4 @@ width:100%;
   border-top:1px solid whitesmoke;
   border-bottom:1px solid whitesmoke;
 }
-
 `;
