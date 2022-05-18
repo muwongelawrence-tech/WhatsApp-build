@@ -1,10 +1,20 @@
+import { Circle } from 'better-react-spinkit';
 import React from 'react';
 
 function Loading() {
   return (
-    <div>
-        Loading
-    </div>
+    <center style = {{ display:"grid" , placeItems: "center" , height: "100vh"}}>
+        <div>
+            <img 
+              src = "http://assets.stickpng.com/images/580b57fcd9996e24bc43c543.png"
+              alt = "whatsapp image"
+              style={{ marginBottom: 10}}
+              height = { 200 }
+            />
+
+            <Circle color="#3CBC28" size = { 60 }/>
+        </div>
+    </center>
   );
 }
 

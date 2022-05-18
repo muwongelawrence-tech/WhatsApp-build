@@ -6,7 +6,7 @@ import Loading from './Loading';
 
 function MyApp({ Component, pageProps }) {
 
-  const [user , loading] = useAuthState(auth);
+  const [user , loading ] = useAuthState(auth);
 
   if(loading) return <Loading/>
 
@@ -15,4 +15,4 @@ function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />
 }
 
-export default MyApp
+export default MyApp;
