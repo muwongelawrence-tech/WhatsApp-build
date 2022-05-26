@@ -10,6 +10,7 @@ function Login() {
     const signIn = () => {
         auth.signInWithPopup(provider).catch(alert);
     }
+    
   return (
     <Container> 
         <Head> <title> Login </title></Head>
