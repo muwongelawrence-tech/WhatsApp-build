@@ -1,4 +1,5 @@
 import { Avatar } from '@material-ui/core';
+import { useRouter } from 'next/router';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollection } from 'react-firebase-hooks/firestore';
@@ -8,10 +9,14 @@ import getRecipientEmail from '../utils/getRecipientEmail';
 
 function Chat({ id , users }) {
 
+  const router = useRouter();
   const [user] = useAuthState(auth);
-  const recipientEmail = getRecipientEmail(users , user);
-  const [recipientSnapshot] = useCollection(db.collection("users").where('email','==', recipientEmail));
+  const [ recipientSnapshot] = useCollection(db.collection("users").where("email","==", getRecipientEmail(users , user)));
+ 
   const recipient = recipientSnapshot?.docs?.[0]?.data();
+  // console.log(recipient);
+  const recipientEmail = getRecipientEmail(users , user);
+ 
   
   
 
