@@ -11,17 +11,18 @@ function Chat({ id , users }) {
 
   const router = useRouter();
   const [user] = useAuthState(auth);
-  const [ recipientSnapshot] = useCollection(db.collection("users").where("email","==", getRecipientEmail(users , user)));
+  const [recipientSnapshot] = useCollection(db.collection("users").where("email","==", getRecipientEmail(users , user)));
  
   const recipient = recipientSnapshot?.docs?.[0]?.data();
   // console.log(recipient);
   const recipientEmail = getRecipientEmail(users , user);
- 
-  
-  
 
+const enterChat = () => {
+  router.push(`/chat/${id}`); 
+}
+ 
   return (
-   <Container>
+   <Container onClick = { enterChat }>
      {
        recipient ? ( <UserAvatar src ={ recipient?.photoURL }/> )
        : ( <UserAvatar> { recipientEmail[0] } </UserAvatar> )
