@@ -27,6 +27,7 @@ export default chat;
 export async function getServerSideProps(context){
     
     const ref = db.collection("chats").doc(context.query.id);
+    console.log(ref);
 
     // Prepare the messages on the server
      const messages = await ref
@@ -48,6 +49,6 @@ height: 100vh;
    display: none;
 }
 
--ms-overflow-style : none;
+-ms-overflow-style : none; /* specifying the overflow style */
 scrollbar-width:none; /* Firefox */
 `;
