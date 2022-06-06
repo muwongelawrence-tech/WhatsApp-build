@@ -5,7 +5,11 @@ import ChatScreen from '../../components/ChatScreen';
 import SideBar from '../../components/SideBar';
 import { db } from '../../firebase';
 
-function chat() {
+function chat({ messages , chat }) {
+
+  // console.log(messages);
+  // console.log(chat);
+
   return (
     <Container>
         <Head>
@@ -31,7 +35,7 @@ export async function getServerSideProps(context){
     // Prepare the messages on the server
      const messagesRes = await ref
     .collection("messages")
-    .order("timestamp", "asc")
+    // .order("timestamp", "asc")
     .get();
 
     const messages = messagesRes.docs.map(doc => ({
@@ -42,6 +46,20 @@ export async function getServerSideProps(context){
       timestamp:messages.timestamp.toDate().getTime()
 
     }));
+
+    // PREP the chats
+    const chatRes = await ref.get();
+    const chat = {
+      id: chatRes.id,
+      ...chatRes.data()
+    }
+
+    return {
+      props: {
+        messages: JSON.stringify(messages),
+        chat : chat
+      }
+    }
 }
 
 const Container = styled.div`
