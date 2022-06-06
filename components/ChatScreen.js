@@ -4,7 +4,7 @@ import styled from "styled-components";
 function ChatScreen() {
   return (
     <Container>
-        <div>ChatScreen</div>
+        <div> This is a ChatScreen</div>
     </Container>
   );
 }
