@@ -1,11 +1,14 @@
 import Head from 'next/head';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import styled from 'styled-components';
 import ChatScreen from '../../components/ChatScreen';
 import SideBar from '../../components/SideBar';
-import { db } from '../../firebase';
+import { auth, db } from '../../firebase';
 
 function chat({ messages , chat }) {
+
+  const [ user ] = useAuthState(auth);
 
   // console.log(messages);
   // console.log(chat);
@@ -16,10 +19,12 @@ function chat({ messages , chat }) {
             <title> chat </title>
         </Head>
 
+
+
         <SideBar/>
 
         <ChatContainer>
-              <ChatScreen />
+              <ChatScreen chat = { chat } messages = {messages}/>
         </ChatContainer>
 
     </Container>
@@ -35,7 +40,7 @@ export async function getServerSideProps(context){
     // Prepare the messages on the server
      const messagesRes = await ref
     .collection("messages")
-    // .order("timestamp", "asc")
+    .orderBy("timestamp", "asc")
     .get();
 
     const messages = messagesRes.docs.map(doc => ({

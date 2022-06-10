@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 
-function ChatScreen() {
+function ChatScreen({ chat, messages}) {
   return (
     <Container>
         <div> This is a ChatScreen</div>
