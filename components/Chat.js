@@ -11,7 +11,7 @@ function Chat({ id , users }) {
 
   const router = useRouter();
   const [user] = useAuthState(auth);
-  const [recipientSnapshot] = useCollection(db.collection("chats").where("email","==", getRecipientEmail(users , user)));
+  const [recipientSnapshot] = useCollection(db.collection("users").where("email","==", getRecipientEmail(users , user)));
  
   const recipient = recipientSnapshot?.docs?.[0]?.data();
   // console.log(recipient);
